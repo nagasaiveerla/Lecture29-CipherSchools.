@@ -1,0 +1,89 @@
+//string pt - 2   
+        //padindrome reverse is same as itself
+        //eg.arora,malayalam
+        public class String{
+            public static void main(String args[])
+            {
+             
+
+               //arora
+               s = s.toLowerCase();//case doesn't matter in finding palidrome
+
+               int l=0;
+               int r = s.length() -1;
+               while(l<r)
+               {
+                if(s.charAt(l)!=s.charAt(r)){
+                    return false;
+
+                }
+                l++;
+                r--;
+               } 
+               //we reach here means loop did not return false means string is palidrome
+               return true;
+            }
+            public static void main(String args[])
+            {
+                String s = "madam";
+                String s3= "ciper";
+                String s4= "MADAM";
+                System.out.println(checkPalindrome(s));
+                System.out.println(checkPalindrome(s3));
+                System.out.println(checkPalindrome(s4));
+
+            }
+        
+    }
+
+        }
+
+        //3.anagrams
+
+        //1.create freequency arrays for both strings
+        //2.if the freequncy arrays are same ->anagrams
+
+        public class Anagrams{
+            static boolean isAnagrams(String s1,String s2)
+            {
+                //if length is not equal they can't be anagrams
+                if(s1.length() ! =s2.length())return false;
+                //let's say ->for our scenario, we can ignore the case of strings
+                s1=s1.toLowerCase();
+                s2=s2.toLowerCase();
+                int n= s1.length();
+
+                int freqArr1[] = new int [256];
+                int freqArr2[] = new int [26];
+                //in freequncy array -> 0 means 'a' and 25 means'z'
+                for(int i=0;i<n;i++)
+                {
+                    //for string 1
+                    int index 1 = s1.charAt(i);
+                    freqArr1[index1]++;
+                    //for strings2
+                    int index2 = s2.charAt(i) -'a';
+                    freqArr2[index2]++;
+                }
+                //freq arrays have been created
+                for(int i=0;i<26;i++)
+                {
+                    if(freqArr[i]!=freqArr2[i])
+                    {
+                        return false;
+                    }
+                }
+                //if reached here means freq arrays are equal
+                return true;
+
+            }
+            public static void main(String args[])
+            {
+               System.out.println(isAnagrams("cat","tac"));
+               System.out.println(isAnagrams("cat","tag"));
+               System.out.println(isAnagrams("cat","tacc"));
+
+
+            }
+
+        }
